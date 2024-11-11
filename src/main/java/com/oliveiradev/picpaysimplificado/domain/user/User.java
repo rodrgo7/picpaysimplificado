@@ -1,7 +1,6 @@
 package com.oliveiradev.picpaysimplificado.domain.user;
 
 import java.math.BigDecimal;
-import org.hibernate.usertype.UserType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
