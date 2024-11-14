@@ -59,17 +59,17 @@ public class TransactionService {
     
         System.out.println("Transação concluída com sucesso!");
     
-        //this.notificationService.sendNotification(sender, "Transação realizada com sucesso!");
-        //this.notificationService.sendNotification(receiver, "Transação realizada com sucesso!");
+        this.notificationService.sendNotification(sender, "Transação realizada com sucesso!");
+        this.notificationService.sendNotification(receiver, "Transação realizada com sucesso!");
     
         return newTransaction;
     }
     
-
         public boolean authorizeTransaction(User sender, BigDecimal value) {
             ResponseEntity<Map> authResponse= restTemplate.getForEntity("https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6", Map.class);
 
             if (authResponse.getStatusCode() == HttpStatus.OK) {
+            @SuppressWarnings("null")
             String message = (String) authResponse.getBody().get("message");
                 return "Autorizado".equalsIgnoreCase(message);
         }  else 

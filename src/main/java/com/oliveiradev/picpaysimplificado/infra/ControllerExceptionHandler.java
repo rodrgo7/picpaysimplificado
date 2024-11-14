@@ -10,9 +10,12 @@ import com.oliveiradev.picpaysimplificado.dtos.ExceptionDTO;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestControllerAdvice
+@SuppressWarnings("rawtypes")
 public class ControllerExceptionHandler {
+   
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity threatDuplicateEntry(DataIntegrityViolationException exception) {
+        @SuppressWarnings("unused")
         ExceptionDTO exceptionDTO = new ExceptionDTO("Usuario já cadastrado", "400");
 
         return ResponseEntity.badRequest().build();
