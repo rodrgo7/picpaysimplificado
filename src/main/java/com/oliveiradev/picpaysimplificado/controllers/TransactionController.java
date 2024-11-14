@@ -22,7 +22,7 @@ public class TransactionController {
     @PostMapping
     public ResponseEntity<Transaction> createTransaction(@RequestBody TransactionDTO transaction) throws Exception {
         Transaction newTransaction = this.transactionService.createTransaction(transaction);
+        
         return new ResponseEntity<>(newTransaction, HttpStatus.OK);
-    }
-    
+    }   
 }
